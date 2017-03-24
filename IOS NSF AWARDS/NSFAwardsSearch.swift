@@ -81,12 +81,13 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)              // hide the keyboard
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // fills the awards array with fake stuff to busyh wait completes
+    // fills the awards array with fake info to busy wait completes
     func fakeIt (reason: String, searchTerm: String) {
         // FAKE OUT COMPLETION OF FILLING OUT NSFAWARDS ARRAY
         for i in 1...25 {
@@ -204,15 +205,15 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
                 while (nsfAwards.count < 25) {                         // busy-wait for awards data to be collected
                 }
                 // print("Returned from getNSFAwardsData", nsfAwards.count, nsfAwards[0].awardID, nsfAwards[0].awardTitle)
-                DispatchQueue.main.async {                                  // async done... go back to UI task
+                DispatchQueue.main.async {                     // async done... go back to UI task
                     self.showBusy.stopAnimating()
-                    self.loadingLabel.isHidden = true                        // stop activity indicator
+                    self.loadingLabel.isHidden = true           // stop activity indicator
                     let tag = nsfAwards[0].awardTitle
-                    if tag.range(of: "*") != nil {          // error return?
+                    if tag.range(of: "*") != nil {          // error return?  * indicates error return
                         self.myAlert(message: "Error")
                     }
                     
-                    self.awardsList.reloadData()                            // show updated table
+                    self.awardsList.reloadData()              // show updated table
                 }
             }
         } // dispatch queue
@@ -226,7 +227,7 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
         if segue.identifier == "selectedID" {                         // AwardsDetail is the link to 2nd controller
             detailsController.awardDetail = selectedAward             // send over necessary info for the selected award
         }
-    }
+    }  // end of awards search button
     
     // toggle between awards with project outcomes reports only or all awards
     @IBAction func projOnlyToggle(_ sender: UISwitch) {
@@ -240,4 +241,5 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
         selectedAward = nsfAwards[indexPath.row]            // extract the award info
         performSegue(withIdentifier: "selectedID", sender: nil) // an award was selected
     }
-}  // end NSFAwardSearch
+    
+}  // end NSFAwardSearch App
