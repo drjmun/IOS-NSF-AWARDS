@@ -126,9 +126,6 @@
                             <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="5kY-uQ-ecV">
                                 <rect key="frame" x="16" y="36" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="projOnlyToggle:" destination="pfs-Xh-c5t" eventType="valueChanged" id="4YX-rJ-qwh"/>
-                                </connections>
                             </switch>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="fua-TX-OOF">
@@ -141,6 +138,7 @@
                         <outlet property="awardsList" destination="v16-MX-RcK" id="jFx-sB-DAH"/>
                         <outlet property="busyContainer" destination="Cqb-wK-gEG" id="6Bg-Dy-UpZ"/>
                         <outlet property="loadingLabel" destination="mCi-Tg-cb0" id="qgz-j3-fXy"/>
+                        <outlet property="projOutcomesOnly" destination="5kY-uQ-ecV" id="k4P-12-be0"/>
                         <outlet property="searchField" destination="DH4-gv-BJC" id="qpc-09-jwd"/>
                         <outlet property="showBusy" destination="tj2-Ne-xaE" id="7AZ-aH-ZU0"/>
                         <segue destination="eb4-3A-bTD" kind="show" identifier="selectedID" id="sBc-eX-ZON"/>
@@ -166,21 +164,21 @@
                                 <rect key="frame" x="16" y="94" width="343" height="293"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ili-03-8rj">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="37"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="37.5"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs1-Gz-Cos">
-                                        <rect key="frame" x="0.0" y="37" width="343" height="37"/>
+                                        <rect key="frame" x="0.0" y="37.5" width="343" height="37"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="institution" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89I-TD-Swe">
-                                        <rect key="frame" x="0.0" y="74" width="343" height="38"/>
+                                        <rect key="frame" x="0.0" y="74.5" width="343" height="37.5"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -194,28 +192,28 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HT0-1l-bes">
-                                        <rect key="frame" x="0.0" y="149" width="343" height="37"/>
+                                        <rect key="frame" x="0.0" y="149" width="343" height="37.5"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="funds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7c-y1-byv">
-                                        <rect key="frame" x="0.0" y="186" width="343" height="37"/>
+                                        <rect key="frame" x="0.0" y="186.5" width="343" height="37.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxD-PI-4DS">
-                                        <rect key="frame" x="0.0" y="223" width="343" height="37"/>
+                                        <rect key="frame" x="0.0" y="224" width="343" height="37"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abs/Proj" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psq-y7-tta" userLabel="Abs/Proj">
-                                        <rect key="frame" x="0.0" y="260" width="343" height="33"/>
+                                        <rect key="frame" x="0.0" y="261" width="343" height="32"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

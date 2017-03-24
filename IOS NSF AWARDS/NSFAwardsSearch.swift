@@ -48,16 +48,16 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var showBusy: UIActivityIndicatorView!
     @IBOutlet weak var awardsList: UITableView!
     @IBOutlet weak var loadingLabel: UILabel!
-    @IBOutlet weak var projOutcomesOnly: UISwitch!
     @IBOutlet weak var busyContainer: UIView!
+    @IBOutlet weak var projOutcomesOnly: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         awardsList.dataSource = self
         awardsList.delegate = self
         self.searchField.delegate = self        // for hiding keyboard when done
-        //projOutcomesOnly.transform = CGAffineTransform(scaleX: 0.50, y: 0.50)  // reduce size of switch
-        //projOnlyToggle(projOutcomesOnly)        // Project Outcomes Report true/false?
+        projOutcomesOnly.transform =  CGAffineTransform(scaleX: 0.5, y: 0.5) //CGAffineTransform(scaleX: 0.50, y: 0.50)  // reduce size of switch
+        projOnlyToggle(projOutcomesOnly)        // Project Outcomes Report true/false?
         busyContainer.center = awardsList.center    // contains the activity indicator
         awardsList.addSubview(busyContainer)
         loadingLabel.isHidden = true            // activity indcator label is initially hidden
