@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		422ECEBE1E8298D500C82ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ECEBD1E8298D500C82ECA /* AppDelegate.swift */; };
-		422ECEC01E8298D500C82ECA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ECEBF1E8298D500C82ECA /* ViewController.swift */; };
+		422ECEC01E8298D500C82ECA /* NSFAwardsSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ECEBF1E8298D500C82ECA /* NSFAwardsSearch.swift */; };
 		422ECEC31E8298D500C82ECA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422ECEC11E8298D500C82ECA /* Main.storyboard */; };
 		422ECEC51E8298D500C82ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422ECEC41E8298D500C82ECA /* Assets.xcassets */; };
 		422ECEC81E8298D500C82ECA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422ECEC61E8298D500C82ECA /* LaunchScreen.storyboard */; };
+		422ECED01E829A2B00C82ECA /* getAwardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ECECF1E829A2B00C82ECA /* getAwardDetails.swift */; };
+		422ECED21E829AB100C82ECA /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ECED11E829AB100C82ECA /* Reachability.swift */; };
+		422ECED41E829B2E00C82ECA /* SearchDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ECED31E829B2E00C82ECA /* SearchDetails.swift */; };
+		422ECED61E829C8100C82ECA /* AwardsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ECED51E829C8100C82ECA /* AwardsClass.swift */; };
+		422ECED81E829CD300C82ECA /* AwardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ECED71E829CD300C82ECA /* AwardsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		422ECEBA1E8298D500C82ECA /* IOS NSF AWARDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IOS NSF AWARDS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		422ECEBD1E8298D500C82ECA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		422ECEBF1E8298D500C82ECA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		422ECEBF1E8298D500C82ECA /* NSFAwardsSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFAwardsSearch.swift; sourceTree = "<group>"; };
 		422ECEC21E8298D500C82ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		422ECEC41E8298D500C82ECA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		422ECEC71E8298D500C82ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		422ECEC91E8298D500C82ECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		422ECECF1E829A2B00C82ECA /* getAwardDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getAwardDetails.swift; sourceTree = "<group>"; };
+		422ECED11E829AB100C82ECA /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		422ECED31E829B2E00C82ECA /* SearchDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetails.swift; sourceTree = "<group>"; };
+		422ECED51E829C8100C82ECA /* AwardsClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsClass.swift; sourceTree = "<group>"; };
+		422ECED71E829CD300C82ECA /* AwardsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +65,16 @@
 			isa = PBXGroup;
 			children = (
 				422ECEBD1E8298D500C82ECA /* AppDelegate.swift */,
-				422ECEBF1E8298D500C82ECA /* ViewController.swift */,
+				422ECEBF1E8298D500C82ECA /* NSFAwardsSearch.swift */,
 				422ECEC11E8298D500C82ECA /* Main.storyboard */,
 				422ECEC41E8298D500C82ECA /* Assets.xcassets */,
 				422ECEC61E8298D500C82ECA /* LaunchScreen.storyboard */,
 				422ECEC91E8298D500C82ECA /* Info.plist */,
+				422ECECF1E829A2B00C82ECA /* getAwardDetails.swift */,
+				422ECED11E829AB100C82ECA /* Reachability.swift */,
+				422ECED31E829B2E00C82ECA /* SearchDetails.swift */,
+				422ECED51E829C8100C82ECA /* AwardsClass.swift */,
+				422ECED71E829CD300C82ECA /* AwardsTableViewCell.swift */,
 			);
 			path = "IOS NSF AWARDS";
 			sourceTree = "<group>";
@@ -137,8 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				422ECEC01E8298D500C82ECA /* ViewController.swift in Sources */,
+				422ECEC01E8298D500C82ECA /* NSFAwardsSearch.swift in Sources */,
+				422ECED81E829CD300C82ECA /* AwardsTableViewCell.swift in Sources */,
 				422ECEBE1E8298D500C82ECA /* AppDelegate.swift in Sources */,
+				422ECED21E829AB100C82ECA /* Reachability.swift in Sources */,
+				422ECED41E829B2E00C82ECA /* SearchDetails.swift in Sources */,
+				422ECED61E829C8100C82ECA /* AwardsClass.swift in Sources */,
+				422ECED01E829A2B00C82ECA /* getAwardDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
