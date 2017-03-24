@@ -27,7 +27,7 @@
 
 import UIKit
 
-class AwardsClass {            // used to send to Details screen
+class AwardsClass {            // used to send to Details screen... filled out for each award in award list
     var awardID: String = ""
     var awardTitle: String = ""
     var awardState: String = ""
@@ -49,4 +49,4 @@ class AwardsClass {            // used to send to Details screen
         self.awardInst = awardInst
     }
     
-}
+} // end AwardsClass

@@ -8,11 +8,11 @@
 
 import UIKit
 
-class SearchDetails: UIViewController {
+class SearchDetails: UIViewController {             // 2nd view controller of NSF AWARDS SEARCH.. project details
     
     @IBOutlet weak var textField: UITextView!       // holds the abstract or proj outcomes
     @IBOutlet weak var searchLabel: UILabel!        // sent from the NSF SEARCH view controller
-    @IBOutlet weak var titleLabel: UILabel!         // contains the various text fields
+    @IBOutlet weak var titleLabel: UILabel!         // contains the various text fields... title may contain special info
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var instLabel: UILabel!
     @IBOutlet weak var stateLabel: UILabel!
@@ -71,7 +71,7 @@ class SearchDetails: UIViewController {
         formatter.numberStyle = .currency
         fundsLabel.text = "Funds: " + formatter.string(from: money)!
         absProj.text = "Abstract Summary"
-        textField.text = absText                 // display the read text... initially it's the Abstract text
+        textField.text = absText                 // contains the read text... initially it's the Abstract text
     }
     
     // this is the workhorse function... gets the requested information
@@ -96,7 +96,7 @@ class SearchDetails: UIViewController {
                         var awardText = feedRoot?["award"] as? Array<Dictionary <String, String > >// locate "awards" an array
                         // print(awardText!)
                         if (awardText?.isEmpty)! {
-                            self.awardsText = "ABSTRACT/PROJECT OUTCOMES FOR: " + searchTerm + " NOT FOUND"
+                            self.awardsText = "ABSTRACT/PROJECT OUTCOMES FOR: " + searchTerm + " NOT FOUND" // ... flag it
                             break myDo
                         }
                         if let abstractORproj = awardText?[0] {       // will contain abstract or project outcomes data... if it exists
