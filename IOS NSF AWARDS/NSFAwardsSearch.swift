@@ -44,12 +44,6 @@ var projOnly: String = "false"
 
 class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-//    @IBOutlet weak var searchField: UITextField!        // text entered by user
-//    @IBOutlet weak var busyContainer: UIView!           // holds the activity indicator
-//    @IBOutlet weak var awardsList: UITableView!         // shows list of awards found
-//    @IBOutlet weak var projOutcomesOnly: UISwitch!      // toggle between awards with proj outcomes only
-//    @IBOutlet weak var showBusy: UIActivityIndicatorView!   // activity indicator
-//    @IBOutlet weak var loadingLabel: UILabel!           // text of activity indicator
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var showBusy: UIActivityIndicatorView!
     @IBOutlet weak var awardsList: UITableView!
@@ -225,7 +219,7 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
 
-    
+    // this is the connection to the award details view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  // SearchDetails view controller display details
         let detailsController = segue.destination as! SearchDetails  // SearchDetails is name of 2nd controller
         
@@ -234,12 +228,14 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
+    // toggle between awards with project outcomes reports only or all awards
     @IBAction func projOnlyToggle(_ sender: UISwitch) {
         if projOutcomesOnly.isOn {projOnly = "true"}
         else
         {projOnly = "false"}
     }
     
+    // func to access the tableview cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {  // 2nd view controller setup
         selectedAward = nsfAwards[indexPath.row]            // extract the award info
         performSegue(withIdentifier: "selectedID", sender: nil) // an award was selected
