@@ -116,12 +116,12 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func showBusyPopUp() {
-        popupCtr.constant = 0
         print("show activity")
     }
     
     func hideBusyPopUp() {
         popupCtr.constant = -300
+        self.dismiss(animated: true, completion: nil)
         print("hide activity")
 
     }
@@ -203,8 +203,6 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.performSegue(withIdentifier: "selectedID", sender: nil) // An Award ID (number) was entered...get details
             
         } else {
-            // loadingLabel.isHidden = false
-            // showBusy.startAnimating()                                   // display activity indicator
             showBusyPopUp()
             
             DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async { // async task so that activity indicator shows
@@ -219,9 +217,7 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
                 }
                 // print("Returned from getNSFAwardsData", nsfAwards.count, nsfAwards[0].awardID, nsfAwards[0].awardTitle)
                 DispatchQueue.main.async {                     // async done... go back to UI task
-//                    self.showBusy.stopAnimating()
-//                    self.loadingLabel.isHidden = true           // stop activity indicator
-                    self.dismiss(animated: true, completion: nil)
+                    self.hideBusyPopUp()
                     let tag = nsfAwards[0].awardTitle
                     if tag.range(of: "*") != nil {          // error return?  * indicates error return
                         self.myAlert(message: "Error")
