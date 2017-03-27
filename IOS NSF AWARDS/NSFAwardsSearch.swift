@@ -51,6 +51,7 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var busyContainer: UIView!
     @IBOutlet weak var projOutcomesOnly: UISwitch!
     
+    @IBOutlet weak var popupCtr: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         awardsList.dataSource = self
@@ -58,9 +59,9 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.searchField.delegate = self        // for hiding keyboard when done
         projOutcomesOnly.transform =  CGAffineTransform(scaleX: 0.5, y: 0.5) //CGAffineTransform(scaleX: 0.50, y: 0.50)  // reduce size of switch
         projOnlyToggle(projOutcomesOnly)        // Project Outcomes Report true/false?
-        busyContainer.center = awardsList.center    // contains the activity indicator
-        awardsList.addSubview(busyContainer)
-        loadingLabel.isHidden = true            // activity indcator label is initially hidden
+        // busyContainer.center = awardsList.center    // contains the activity indicator
+        //awardsList.addSubview(busyContainer)
+        // loadingLabel.isHidden = true            // activity indcator label is initially hidden
         if !internetAvail() {myAlert(message: "No Internet Access")}
     }
     
@@ -112,6 +113,17 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
         if currentReachabilityStatus == .reachableViaWiFi { return true}
         else if currentReachabilityStatus == .reachableViaWWAN { return true}
         else {return false}
+    }
+    
+    func showBusyPopUp() {
+        popupCtr.constant = 0
+        print("show activity")
+    }
+    
+    func hideBusyPopUp() {
+        popupCtr.constant = -300
+        print("hide activity")
+
     }
     
     
@@ -191,8 +203,9 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.performSegue(withIdentifier: "selectedID", sender: nil) // An Award ID (number) was entered...get details
             
         } else {
-            loadingLabel.isHidden = false
-            showBusy.startAnimating()                                   // display activity indicator
+            // loadingLabel.isHidden = false
+            // showBusy.startAnimating()                                   // display activity indicator
+            showBusyPopUp()
             
             DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async { // async task so that activity indicator shows
                 
@@ -206,8 +219,9 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
                 }
                 // print("Returned from getNSFAwardsData", nsfAwards.count, nsfAwards[0].awardID, nsfAwards[0].awardTitle)
                 DispatchQueue.main.async {                     // async done... go back to UI task
-                    self.showBusy.stopAnimating()
-                    self.loadingLabel.isHidden = true           // stop activity indicator
+//                    self.showBusy.stopAnimating()
+//                    self.loadingLabel.isHidden = true           // stop activity indicator
+                    self.hideBusyPopUp()
                     let tag = nsfAwards[0].awardTitle
                     if tag.range(of: "*") != nil {          // error return?  * indicates error return
                         self.myAlert(message: "Error")
