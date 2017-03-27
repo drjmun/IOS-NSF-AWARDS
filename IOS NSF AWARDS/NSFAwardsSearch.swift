@@ -221,7 +221,7 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
                 DispatchQueue.main.async {                     // async done... go back to UI task
 //                    self.showBusy.stopAnimating()
 //                    self.loadingLabel.isHidden = true           // stop activity indicator
-                    self.hideBusyPopUp()
+                    self.dismiss(animated: true, completion: nil)
                     let tag = nsfAwards[0].awardTitle
                     if tag.range(of: "*") != nil {          // error return?  * indicates error return
                         self.myAlert(message: "Error")
@@ -236,9 +236,10 @@ class NSFAwardsSearch: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     // this is the connection to the award details view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  // SearchDetails view controller display details
-        let detailsController = segue.destination as! SearchDetails  // SearchDetails is name of 2nd controller
         
         if segue.identifier == "selectedID" {                         // AwardsDetail is the link to 2nd controller
+            let detailsController = segue.destination as! SearchDetails  // SearchDetails is name of 2nd controller
+
             detailsController.awardDetail = selectedAward             // send over necessary info for the selected award
         }
     }  // end of awards search button
